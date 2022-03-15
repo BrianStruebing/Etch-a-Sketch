@@ -14,8 +14,36 @@ header{
 
 main {
     display: flex;
+    justify-content: space-evenly;
 }
 
 .controlDiv {
     color: white;
+    display: Flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+button {
+    border-radius: 0.7em;
+    padding: 20px;
+    color: white;
+    background-color: #1A1A1A;
+    border: 2px solid white;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+img {
+    display: none;
+}
+
+.gridDiv {
+    display: grid;
+    width: 500px;
+    height: 500px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
