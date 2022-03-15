@@ -21,10 +21,8 @@ function setCurrentColor(newColor) {
 
 // Creating and selecting all the DOM elements we need
 const mainDiv = document.querySelector("main");
-// const controlDiv = document.createElement("div");
 const grid = document.getElementById("grid")
-const gridDiv = document.querySelector(".gridDiv")
-// const testHeading = document.createElement("h1");
+const gridDiv = document.querySelector(".gridDiv");
 const clearBtn = document.getElementById("clearBtn");
 const eraseBtn = document.getElementById("eraserBtn");
 const rainbowBtn = document.getElementById("rainbowBtn");
@@ -38,15 +36,8 @@ eraseBtn.onclick = () => setCurrentMode("eraser");
 clearBtn.onclick = () => reloadGrid();
 colorPicker.onchange = (e) => setCurrentColor(e.target.value);
 
-// testHeading.textContent = "Hello";
-
-
-// controlDiv.classList.add("controlDiv");
-
-// controlDiv.appendChild(testHeading);
-// mainDiv.appendChild(controlDiv);
-
-
+// Function sets up the grid by looking for the "size" value.
+// Then gives each element of that grid an evenlistener that changes the color of the given element
 function setupGrid(size){
   grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
   grid.style.gridTemplateRows = `repeat(${size}, 1fr)`;
@@ -63,6 +54,8 @@ function setupGrid(size){
 
 setupGrid(currentSize)
 
+
+// Changes the colors based on what mode is selected. 
 function changeColor(e) {
     
     if (currentMode === 'rainbow') {
@@ -71,12 +64,15 @@ function changeColor(e) {
       const randomB = Math.floor(Math.random() * 256)
       e.target.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`
     } else if (currentMode === 'color') {
+      // Sets the color to the color selected with the colorpicker
       e.target.style.backgroundColor = currentColor
     } else if (currentMode === 'eraser') {
       e.target.style.backgroundColor = '#fefefe'
     }
   }
   
+
+// Simply reloades the game     
 function reloadGrid(){
     clearGrid();
     setupGrid(currentSize);
